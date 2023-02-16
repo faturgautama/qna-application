@@ -1,0 +1,79 @@
+<div class="row">
+    <!-- List Question -->
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 border-end">
+        <p class="mb-2 fw-semibold">
+            Daftar Question
+        </p>
+
+        <ul *ngFor="let item of Questions" class="list-group">
+            <li class="list-group-item mb-2 border-0 shadow-sm" (click)="handleSelectedQuestion(item)">
+                <p class="mb-0 question text-blue">
+                    {{ item.question }}
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="mb-0 full_name_created">
+                        Oleh : {{ item.full_name_created }}
+                    </p>
+                    <p class="mb-0 time_created">
+                        {{ item.time_created | date: 'dd/MM/yyyy HH:mm' }}
+                    </p>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+
+    <!-- Detail Question -->
+    <div *ngIf="SelectedQuestion" class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <!-- Question -->
+                <div class="row mb-2">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h5 class="text-blue">
+                            {{ SelectedQuestion?.question }}
+                        </h5>
+                        <p class="mb-1 full_name_created">
+                            Oleh : {{ SelectedQuestion?.full_name_created }}
+                        </p>
+                        <p class="mb-0 time_created">
+                            {{ SelectedQuestion?.time_created | date: 'dd/MM/yyyy HH:mm' }}
+                        </p>
+                    </div>
+                </div>
+
+                <!-- List of Answer -->
+                <div class="row mb-3 px-3">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rounded col_answer">
+                        <div *ngFor="let item of SelectedQuestion.answer" class="row py-2 mb-2 border-bottom">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <p class="mb-1 question">
+                                    {{ item.answer }}
+                                </p>
+                                <p class="mb-0 full_name_created">
+                                    {{ item.full_name_created }}
+                                </p>
+                                <p class="mb-0 time_created">
+                                    {{ item.time_created | date: 'dd/MM/yyyy HH:mm' }}
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Send Answer -->
+                <div class="row mb-2 px-3" [formGroup]="Form">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 px-0 mb-2 d-flex">
+                        <input type="text" class="form-control" formControlName="answer">
+
+                        <button class="btn btn-primary btn-sm ms-2" type="button" style="width: 20%"
+                            (click)="handleSubmitAnswer(Form.value)">
+                            Send Answer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

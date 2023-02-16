@@ -1,0 +1,30 @@
+<div class="row">
+    <div [formGroup]="Form" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <!-- Heading -->
+        <div class="row align-items-center justify-content-center mb-3">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center ">
+                <h4 class="text-blue fw-semibold mb-2">
+                    Ask Question
+                </h4>
+            </div>
+        </div>
+
+        <div class="row align-items-center justify-content-center mb-3">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                <label for="full_name" class="form-label text-blue">
+                    Question
+                </label>
+                <textarea type="text" class="form-control" rows="5" formControlName="question"></textarea>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="row align-items-center justify-content-center mb-2">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 d-grid gap-2">
+                <button class="btn btn-primary btn-sm" type="button" (click)="handleSubmitQuestion(Form.value)">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+p.question {
+  font-size: 16px;
+}
+
+p.full_name_created {
+  font-size: 13px;
+  color: var(--bs-gray-700);
+}
+
+p.time_created {
+  font-size: 12px;
+  color: var(--bs-gray-600);
+}
+
+.col_answer {
+  background-color: var(--bs-gray-200);
+  height: calc(100vh - 20rem);
+  overflow-y: auto;
+}

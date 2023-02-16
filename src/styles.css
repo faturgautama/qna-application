@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  scroll-behavior: smooth !important;
+  overflow-x: hidden !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.text-blue {
+  color: #0081b4;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}

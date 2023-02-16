@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand text-blue fw-semibold">QnA Application</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">QnA Application</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul
+                    class="navbar-nav {{ UserData ? 'justify-content-center' : 'justify-content-end' }} flex-grow-1 pe-3">
+                    <li *ngFor="let item of Menus" [id]="item.id" class="nav-item cursor-pointer">
+                        <a class="nav-link active" (click)="handleClickMenu(item)">
+                            {{ item.title }}
+                        </a>
+                    </li>
+                </ul>
+                <ul *ngIf="UserData" class="d-flex ms-auto mb-0 align-items-center">
+                    <div class="me-5 d-flex align-items-center">
+                        <i class="fas fa-user fa-xs text-blue"></i>
+                        <p class="mb-0 fw-light ms-2">
+                            {{ UserData?.full_name }}
+                        </p>
+                    </div>
+                    <div (click)="handleLogout()">
+                        <i class="fas fa-sign-out-alt fa-sm text-blue"></i>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
